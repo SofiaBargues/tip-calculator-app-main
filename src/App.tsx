@@ -27,13 +27,17 @@ function App() {
         </div>
         <div>
           Select Tip %
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => {
                 setTip(5);
                 setIsCustom(false);
               }}
-              className="border"
+              className={
+                tip == 5
+                  ? " rounded-md bg-[#26c2ad]"
+                  : "rounded-md bg-[#00474b]"
+              }
             >
               5%
             </button>
@@ -42,7 +46,11 @@ function App() {
                 setIsCustom(false);
                 setTip(10);
               }}
-              className="border"
+              className={
+                tip == 10
+                  ? " rounded-md bg-[#26c2ad]"
+                  : "rounded-md bg-[#00474b]"
+              }
             >
               10%
             </button>
@@ -51,7 +59,11 @@ function App() {
                 setIsCustom(false);
                 setTip(15);
               }}
-              className="border"
+              className={
+                tip == 15
+                  ? " rounded-md bg-[#26c2ad]"
+                  : "rounded-md bg-[#00474b]"
+              }
             >
               15%
             </button>
@@ -61,7 +73,11 @@ function App() {
                 setIsCustom(false);
                 setTip(25);
               }}
-              className="border"
+              className={
+                tip == 25
+                  ? " rounded-md bg-[#26c2ad]"
+                  : "rounded-md bg-[#00474b]"
+              }
             >
               25%
             </button>
@@ -70,7 +86,11 @@ function App() {
                 setIsCustom(false);
                 setTip(50);
               }}
-              className="border"
+              className={
+                tip == 50
+                  ? " rounded-md bg-[#26c2ad]"
+                  : "rounded-md bg-[#00474b]"
+              }
             >
               50%
             </button>
@@ -82,7 +102,11 @@ function App() {
                 setTip(Number(e.target.value));
               }}
               type="number"
-              className="border"
+              className={
+                tip == 5
+                  ? " bg-[#f3f8fb] rounded-sm"
+                  : "rounded-sm bg-[#f3f8fb]"
+              }
               placeholder="Custom"
             />
           </div>
