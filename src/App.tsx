@@ -4,8 +4,9 @@ import viteLogo from "/vite.svg";
 
 function App() {
   const [bill, setBill] = useState(0);
+  const [person, setPerson] = useState(0);
 
-  console.log(bill);
+  console.log(person);
   return (
     <div className="bg-[#c5e4e7] h-screen  text-2xl flex flex-col justify-between items-center">
       SPLITTER
@@ -20,7 +21,7 @@ function App() {
           />
         </div>
         <div>
-          Select Tip %{" "}
+          Select Tip %
           <div className="grid grid-cols-2">
             <button className="border">5%</button>
             <button className="border">10%</button>
@@ -33,9 +34,10 @@ function App() {
         <div>
           Number of People
           <input
-            type="text"
+            value={person}
+            type="number"
             className="bg-[#f3f8fb]  rounded-md items-center w-full "
-            placeholder="👤"
+            onChange={(e) => setPerson(e.target.value)}
           />
         </div>
         <div className="bg-[#00474b] p-8 h-[205px] rounded-2xl text-white text-sm m">
