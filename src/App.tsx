@@ -8,7 +8,10 @@ function App() {
   const [tip, setTip] = useState(0);
   const [isCustom, setIsCustom] = useState(false);
 
-  console.log(tip);
+  const tipPerson = person != 0 ? (bill * tip) / 100 / person : "-";
+  const totalPerson = person != 0 ? bill / person + Number(tipPerson) : "-";
+
+  console.log(tipPerson);
   return (
     <div className="bg-[#c5e4e7] h-screen  text-2xl flex flex-col justify-between items-center">
       SPLITTER
@@ -17,7 +20,7 @@ function App() {
           Bill
           <input
             value={bill}
-            onChange={(e) => setBill(e.target.value)}
+            onChange={(e) => setBill(Number(e.target.value))}
             type="number"
             className="bg-[#f3f8fb]  w-full rounded-md items-center"
           />
@@ -76,7 +79,7 @@ function App() {
               value={isCustom ? tip : ""}
               onChange={(e) => {
                 setIsCustom(true);
-                setTip(e.target.value);
+                setTip(Number(e.target.value));
               }}
               type="number"
               className="border"
@@ -90,7 +93,7 @@ function App() {
             value={person}
             type="number"
             className="bg-[#f3f8fb]  rounded-md items-center w-full "
-            onChange={(e) => setPerson(e.target.value)}
+            onChange={(e) => setPerson(Number(e.target.value))}
           />
         </div>
         <div className="bg-[#00474b] p-8 h-[205px] rounded-2xl text-white text-sm m">
@@ -99,17 +102,25 @@ function App() {
               <div>Tip Amount</div>
               <div>/ person</div>
             </div>
-            $4.20
+            ${tipPerson}
           </div>
           <div className=" flex flex-row justify-between">
             <div>
               <div>Total</div>
               <div>/ person</div>
             </div>
-            $32.79
+            ${totalPerson}
           </div>
           <div>
-            <button className="bg-[#26c2ad] h-10 text-[#00474b] rounded-md  w-full">
+            <button
+              onClick={() => {
+                setIsCustom(false);
+                setBill(0);
+                setPerson(0);
+                setTip(0);
+              }}
+              className="bg-[#26c2ad] h-10 text-[#00474b] rounded-md  w-full"
+            >
               Reset
             </button>
           </div>
