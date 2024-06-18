@@ -5,8 +5,10 @@ import viteLogo from "/vite.svg";
 function App() {
   const [bill, setBill] = useState(0);
   const [person, setPerson] = useState(0);
+  const [tip, setTip] = useState(0);
+  const [isCustom, setIsCustom] = useState(false);
 
-  console.log(person);
+  console.log(tip);
   return (
     <div className="bg-[#c5e4e7] h-screen  text-2xl flex flex-col justify-between items-center">
       SPLITTER
@@ -23,12 +25,63 @@ function App() {
         <div>
           Select Tip %
           <div className="grid grid-cols-2">
-            <button className="border">5%</button>
-            <button className="border">10%</button>
-            <button className="border">15%</button>
-            <button className="border">25%</button>
-            <button className="border">50%</button>
-            <input type="text" className="border" placeholder="Custom" />
+            <button
+              onClick={() => {
+                setTip(5);
+                setIsCustom(false);
+              }}
+              className="border"
+            >
+              5%
+            </button>
+            <button
+              onClick={() => {
+                setIsCustom(false);
+                setTip(10);
+              }}
+              className="border"
+            >
+              10%
+            </button>
+            <button
+              onClick={() => {
+                setIsCustom(false);
+                setTip(15);
+              }}
+              className="border"
+            >
+              15%
+            </button>
+
+            <button
+              onClick={() => {
+                setIsCustom(false);
+                setTip(25);
+              }}
+              className="border"
+            >
+              25%
+            </button>
+            <button
+              onClick={() => {
+                setIsCustom(false);
+                setTip(50);
+              }}
+              className="border"
+            >
+              50%
+            </button>
+            <input
+              // value={Number(tip) !== 5 ? tip : ""}
+              value={isCustom ? tip : ""}
+              onChange={(e) => {
+                setIsCustom(true);
+                setTip(e.target.value);
+              }}
+              type="number"
+              className="border"
+              placeholder="Custom"
+            />
           </div>
         </div>
         <div>
