@@ -9,8 +9,8 @@ function MyButton({ onClick, tip, isActive }) {
       onClick={onClick}
       className={
         isActive
-          ? " rounded-xl bg-[#26c2ad]  p-2"
-          : "rounded-xl bg-[#00474b] p-2"
+          ? " rounded-md bg-[#26c2ad] text-[#00474b] font-semibold p-2"
+          : "rounded-md bg-[#00474b]  hover:bg-[#9fe8df] hover:text-[#00474b] font-semibold   text-[#f5fdff]  p-2"
       }
     >
       {tip}%
@@ -30,7 +30,7 @@ function App() {
 
   console.log(tipPerson);
   return (
-    <div className="bg-[#c5e4e7] xl:m-auto  xl:justify-center  h-screen xl:h-screen  xl:h-screen font-spaceMono flex flex-col justify-between items-center">
+    <div className="bg-[#c5e4e7] xl:m-auto  xl:justify-center  h-screen  xl:h-screen font-spaceMono flex flex-col justify-between items-center">
       <div className="font-semibold text-[#4b7272] m-8 text-2xl xl:p-5">
         S P L I<br></br>T T E R
       </div>
@@ -44,7 +44,7 @@ function App() {
               value={bill}
               onChange={(e) => setBill(Number(e.target.value))}
               type="number"
-              className="bg-[#f3f8fb] w-full h-11 rounded-xl items-center text-end text-2xl font-semibold text-[#013a3a]"
+              className="bg-[#f3f8fb] w-full h-11 rounded-md items-center text-end text-2xl font-semibold  text-[#013a3a] focus:outline-[#7abeb7]"
             />
           </div>
           <div>
@@ -104,7 +104,7 @@ function App() {
                 className={
                   tip == 5
                     ? " bg-[#f3f8fb] rounded-xl  text-end"
-                    : "rounded-xl bg-[#f3f8fb]  text-end placeholder:font-semibold font-semibold text-[#013a3a] placeholder:text-[#94abac]"
+                    : "rounded-md bg-[#f3f8fb]  text-end placeholder:font-semibold font-semibold focus:outline-[#7abeb7] text-[#013a3a] placeholder:text-[#94abac]"
                 }
                 placeholder="Custom"
               />
@@ -115,10 +115,17 @@ function App() {
               Number of People
             </div>
             <input
+              pattern="\d+"
               value={person}
+              step="1"
               type="number"
-              className="bg-[#f3f8fb] w-full h-11 rounded-xl items-center text-end text-2xl font-semibold text-[#013a3a]"
-              onChange={(e) => setPerson(Number(e.target.value))}
+              className="bg-[#f3f8fb] w-full h-11 rounded-md focus:outline-[#7abeb7] items-center text-end text-2xl font-semibold text-[#013a3a]"
+              onChange={(e) => {
+                const regex = new RegExp(/^[1-9]*$/);
+                setPerson(
+                  regex.test(e.target.value) ? Number(e.target.value) : person
+                );
+              }}
             />
           </div>
         </div>
@@ -156,7 +163,7 @@ function App() {
                 setPerson(0);
                 setTip(0);
               }}
-              className="bg-[#26c2ad] font-bold text-xl h-10  text-[#00474b] rounded-xl  w-full"
+              className="bg-[#26c2ad] font-bold text-xl h-10 hover:bg-[#9fe8df] text-[#00474b] rounded-md  w-full"
             >
               RESET
             </button>
