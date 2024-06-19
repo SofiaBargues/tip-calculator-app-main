@@ -1,6 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import personIcon from "./assets/icon-person.svg";
+import dollarIcon from "./assets/icon-dollar.svg";
 
 // <MyButton tip={5} isActive={tip==5}
 function MyButton({ onClick, tip, isActive }) {
@@ -40,12 +41,18 @@ function App() {
             <div className="text-[#5f7373] text-base font-semibold my-1">
               Bill
             </div>
-            <input
-              value={bill}
-              onChange={(e) => setBill(Number(e.target.value))}
-              type="number"
-              className="bg-[#f3f8fb] w-full h-11 rounded-md items-center text-end text-2xl font-semibold  text-[#013a3a] focus:outline-[#7abeb7]"
-            />
+            <div className="relative">
+              <div className="absolute text-xl text-[#a3b7b9] left-4 top-4">
+                <img src={dollarIcon} alt="" />
+              </div>
+
+              <input
+                value={bill}
+                onChange={(e) => setBill(Number(e.target.value))}
+                type="number"
+                className="bg-[#f3f8fb] w-full h-11 rounded-md items-center text-end text-2xl font-semibold  text-[#013a3a] focus:outline-[#7abeb7]"
+              />
+            </div>
           </div>
           <div>
             <div className="text-[#5f7373] text-base font-semibold my-3">
@@ -113,20 +120,25 @@ function App() {
           <div className="my-3">
             <div className="text-[#5f7373] text-base font-semibold my-3 ">
               Number of People
+            </div>{" "}
+            <div className="relative">
+              <div className="absolute text-xl text-[#a3b7b9] left-4 top-4">
+                <img src={personIcon} alt="" />
+              </div>
+              <input
+                pattern="\d+"
+                value={person}
+                step="1"
+                type="number"
+                className="bg-[#f3f8fb] w-full h-11 rounded-md focus:outline-[#7abeb7] items-center text-end text-2xl font-semibold text-[#013a3a]"
+                onChange={(e) => {
+                  const regex = new RegExp(/^[1-9]*$/);
+                  setPerson(
+                    regex.test(e.target.value) ? Number(e.target.value) : person
+                  );
+                }}
+              />
             </div>
-            <input
-              pattern="\d+"
-              value={person}
-              step="1"
-              type="number"
-              className="bg-[#f3f8fb] w-full h-11 rounded-md focus:outline-[#7abeb7] items-center text-end text-2xl font-semibold text-[#013a3a]"
-              onChange={(e) => {
-                const regex = new RegExp(/^[1-9]*$/);
-                setPerson(
-                  regex.test(e.target.value) ? Number(e.target.value) : person
-                );
-              }}
-            />
           </div>
         </div>
 
