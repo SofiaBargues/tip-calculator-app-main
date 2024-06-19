@@ -128,7 +128,7 @@ function App() {
                 / person
               </div>
             </div>
-            <div className="text-3xl font-semibold  text-[#1db59e]">
+            <div className="text-2xl font-semibold  text-[#1db59e]">
               ${tipPerson}
             </div>
           </div>
@@ -139,7 +139,7 @@ function App() {
                 / person
               </div>
             </div>
-            <div className="text-3xl font-semibold  text-[#1db59e]">
+            <div className="text-2xl font-semibold  text-[#1db59e]">
               ${totalPerson}
             </div>
           </div>
