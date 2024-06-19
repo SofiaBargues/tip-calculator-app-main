@@ -30,7 +30,7 @@ function App() {
 
   console.log(tipPerson);
   return (
-    <div className="bg-[#c5e4e7] xl:m-auto  xl:justify-center  h-screen xl:h-screen  xl:h-screenfont-spaceMono flex flex-col justify-between items-center">
+    <div className="bg-[#c5e4e7] xl:m-auto  xl:justify-center  h-screen xl:h-screen  xl:h-screen font-spaceMono flex flex-col justify-between items-center">
       <div className="font-semibold text-[#4b7272] m-8 text-2xl xl:p-5">
         S P L I<br></br>T T E R
       </div>
