@@ -1,10 +1,17 @@
 import { useState } from "react";
-import viteLogo from "/vite.svg";
 import personIcon from "./assets/icon-person.svg";
 import dollarIcon from "./assets/icon-dollar.svg";
 
 // <MyButton tip={5} isActive={tip==5}
-function MyButton({ onClick, tip, isActive }) {
+function MyButton({
+  onClick,
+  tip,
+  isActive,
+}: {
+  onClick: any;
+  tip: any;
+  isActive: any;
+}) {
   return (
     <button
       onClick={onClick}
