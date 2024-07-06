@@ -26,9 +26,9 @@ function MyButton({
   );
 }
 function App() {
-  const [bill, setBill] = useState(0);
-  const [person, setPerson] = useState(0);
-  const [tip, setTip] = useState(0);
+  const [bill, setBill] = useState(10);
+  const [person, setPerson] = useState(2);
+  const [tip, setTip] = useState(10);
   const [isCustom, setIsCustom] = useState(false);
 
   const tipPerson =
